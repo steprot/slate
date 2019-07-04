@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Nucleus API</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -212,9 +212,6 @@
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -228,16 +225,301 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#datasets" class="toc-h1 toc-link" data-title="/DATASETS">/DATASETS</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#get" class="toc-h2 toc-link" data-title="GET"><strong><em>GET</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#datasets-append_json_to_dataset" class="toc-h1 toc-link" data-title="/DATASETS/APPEND_JSON_TO_DATASET">/DATASETS/APPEND_JSON_TO_DATASET</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#datasets-bulk_insert_json" class="toc-h1 toc-link" data-title="/DATASETS/BULK_INSERT_JSON">/DATASETS/BULK_INSERT_JSON</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-2" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#datasets-dataset_info" class="toc-h1 toc-link" data-title="/DATASETS/DATASET_INFO">/DATASETS/DATASET_INFO</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-3" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#datasets-dataset_tagging" class="toc-h1 toc-link" data-title="/DATASETS/DATASET_TAGGING">/DATASETS/DATASET_TAGGING</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-4" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#datasets-delete_dataset" class="toc-h1 toc-link" data-title="/DATASETS/DELETE_DATASET">/DATASETS/DELETE_DATASET</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-5" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#datasets-delete_document" class="toc-h1 toc-link" data-title="/DATASETS/DELETE_DOCUMENT">/DATASETS/DELETE_DOCUMENT</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-6" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#datasets-import_file_from_url" class="toc-h1 toc-link" data-title="/DATASETS/IMPORT_FILE_FROM_URL">/DATASETS/IMPORT_FILE_FROM_URL</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-7" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#datasets-rename_dataset" class="toc-h1 toc-link" data-title="/DATASETS/RENAME_DATASET">/DATASETS/RENAME_DATASET</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-8" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#datasets-upload_file" class="toc-h1 toc-link" data-title="/DATASETS/UPLOAD_FILE">/DATASETS/UPLOAD_FILE</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-9" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#documents-document_classify" class="toc-h1 toc-link" data-title="/DOCUMENTS/DOCUMENT_CLASSIFY">/DOCUMENTS/DOCUMENT_CLASSIFY</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-10" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#documents-document_contrasted_summary" class="toc-h1 toc-link" data-title="/DOCUMENTS/DOCUMENT_CONTRASTED_SUMMARY">/DOCUMENTS/DOCUMENT_CONTRASTED_SUMMARY</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-11" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#documents-document_display" class="toc-h1 toc-link" data-title="/DOCUMENTS/DOCUMENT_DISPLAY">/DOCUMENTS/DOCUMENT_DISPLAY</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-12" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#documents-document_info" class="toc-h1 toc-link" data-title="/DOCUMENTS/DOCUMENT_INFO">/DOCUMENTS/DOCUMENT_INFO</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-13" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#documents-document_recommend" class="toc-h1 toc-link" data-title="/DOCUMENTS/DOCUMENT_RECOMMEND">/DOCUMENTS/DOCUMENT_RECOMMEND</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-14" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#documents-document_sentiment" class="toc-h1 toc-link" data-title="/DOCUMENTS/DOCUMENT_SENTIMENT">/DOCUMENTS/DOCUMENT_SENTIMENT</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-15" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#documents-document_summary" class="toc-h1 toc-link" data-title="/DOCUMENTS/DOCUMENT_SUMMARY">/DOCUMENTS/DOCUMENT_SUMMARY</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-16" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#feeds-available_sec_filings" class="toc-h1 toc-link" data-title="/FEEDS/AVAILABLE_SEC_FILINGS">/FEEDS/AVAILABLE_SEC_FILINGS</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-17" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#feeds-create_dataset_from_sec_filings" class="toc-h1 toc-link" data-title="/FEEDS/CREATE_DATASET_FROM_SEC_FILINGS">/FEEDS/CREATE_DATASET_FROM_SEC_FILINGS</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-18" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#filters" class="toc-h1 toc-link" data-title="/FILTERS">/FILTERS</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-2" class="toc-h2 toc-link" data-title="GET"><strong><em>GET</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#filters-delete_filter" class="toc-h1 toc-link" data-title="/FILTERS/DELETE_FILTER">/FILTERS/DELETE_FILTER</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-19" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#filters-save_filter" class="toc-h1 toc-link" data-title="/FILTERS/SAVE_FILTER">/FILTERS/SAVE_FILTER</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-20" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#jobs" class="toc-h1 toc-link" data-title="/JOBS">/JOBS</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-3" class="toc-h2 toc-link" data-title="GET"><strong><em>GET</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#jobs-start_example_job" class="toc-h1 toc-link" data-title="/JOBS/START_EXAMPLE_JOB">/JOBS/START_EXAMPLE_JOB</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-21" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#legacy" class="toc-h1 toc-link" data-title="/LEGACY">/LEGACY</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-22" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#topics-author_connectivity" class="toc-h1 toc-link" data-title="/TOPICS/AUTHOR_CONNECTIVITY">/TOPICS/AUTHOR_CONNECTIVITY</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-23" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#topics-topic_consensus" class="toc-h1 toc-link" data-title="/TOPICS/TOPIC_CONSENSUS">/TOPICS/TOPIC_CONSENSUS</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-24" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#topics-topic_consensus_transfer" class="toc-h1 toc-link" data-title="/TOPICS/TOPIC_CONSENSUS_TRANSFER">/TOPICS/TOPIC_CONSENSUS_TRANSFER</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-25" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#topics-topic_contrast" class="toc-h1 toc-link" data-title="/TOPICS/TOPIC_CONTRAST">/TOPICS/TOPIC_CONTRAST</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-26" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#topics-topic_delta" class="toc-h1 toc-link" data-title="/TOPICS/TOPIC_DELTA">/TOPICS/TOPIC_DELTA</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-27" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#topics-topic_historical" class="toc-h1 toc-link" data-title="/TOPICS/TOPIC_HISTORICAL">/TOPICS/TOPIC_HISTORICAL</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-28" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#topics-topic_sentiment" class="toc-h1 toc-link" data-title="/TOPICS/TOPIC_SENTIMENT">/TOPICS/TOPIC_SENTIMENT</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-29" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#topics-topic_sentiment_transfer" class="toc-h1 toc-link" data-title="/TOPICS/TOPIC_SENTIMENT_TRANSFER">/TOPICS/TOPIC_SENTIMENT_TRANSFER</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-30" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#topics-topic_summary" class="toc-h1 toc-link" data-title="/TOPICS/TOPIC_SUMMARY">/TOPICS/TOPIC_SUMMARY</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-31" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#topics-topic_transfer" class="toc-h1 toc-link" data-title="/TOPICS/TOPIC_TRANSFER">/TOPICS/TOPIC_TRANSFER</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-32" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#topics-topics" class="toc-h1 toc-link" data-title="/TOPICS/TOPICS">/TOPICS/TOPICS</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-33" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#users" class="toc-h1 toc-link" data-title="/USERS">/USERS</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-34" class="toc-h2 toc-link" data-title="POST"><strong><em>POST</em></strong></a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#get-4" class="toc-h2 toc-link" data-title="GET"><strong><em>GET</em></strong></a>
                   </li>
               </ul>
           </li>
@@ -247,191 +529,1638 @@
       </ul>
         <ul class="toc-footer">
             <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='https://github.com/lavkumarv'>Documentation Powered by lav</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Nucleus text analytics APIs from SumUp Analytics. Example and documentation: https://github.com/SumUpAnalytics/nucleus-sdk </p>
 
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<p><strong>Version:</strong> v2.4.1 </p>
 <h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
+<table><thead>
+<tr>
+<th>apiKey</th>
+<th><em>API Key</em></th>
+</tr>
+</thead><tbody>
+</tbody></table>
+<h1 id='datasets'>/DATASETS</h1><h2 id='get'><strong><em>GET</em></strong></h2>
+<p><strong>Description:</strong> List the datasets owned by the user.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<p><code>***GET*** /datasets</code> </p>
+
+<p><strong>Parameters</strong></p>
+
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>consumes</td>
+<td>textHtml</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>200</td>
+<td>Success</td>
 </tr>
 </tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<h1 id='datasets-append_json_to_dataset'>/DATASETS/APPEND_JSON_TO_DATASET</h1><h2 id='post'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Add a document to a dataset, in JSON form.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<p><code>***POST*** /datasets/append_json_to_dataset</code> </p>
+
+<p><strong>Parameters</strong></p>
+
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
 </tr>
 </tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
+<h1 id='datasets-bulk_insert_json'>/DATASETS/BULK_INSERT_JSON</h1><h2 id='post-2'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Add many document to a dataset, in JSON form. Bulk insertion is much faster than making one api call for each document.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<p><code>***POST*** /datasets/bulk_insert_json</code> </p>
+
+<p><strong>Parameters</strong></p>
+
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
 </tr>
 </tbody></table>
+<h1 id='datasets-dataset_info'>/DATASETS/DATASET_INFO</h1><h2 id='post-3'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Get information about a dataset.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>***POST*** /datasets/dataset_info</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='datasets-dataset_tagging'>/DATASETS/DATASET_TAGGING</h1><h2 id='post-4'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Tag documents containig specified entities within a dataset.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>***POST*** /datasets/dataset_tagging</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='datasets-delete_dataset'>/DATASETS/DELETE_DATASET</h1><h2 id='post-5'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Delete an existing dataset from the user storage.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>***POST*** /datasets/delete_dataset</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='datasets-delete_document'>/DATASETS/DELETE_DOCUMENT</h1><h2 id='post-6'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Delete documents from a dataset.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>***POST*** /datasets/delete_document</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='datasets-import_file_from_url'>/DATASETS/IMPORT_FILE_FROM_URL</h1><h2 id='post-7'><strong><em>POST</em></strong></h2><h3 id='http-request-8'>HTTP Request</h3>
+<p><code>***POST*** /datasets/import_file_from_url</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='datasets-rename_dataset'>/DATASETS/RENAME_DATASET</h1><h2 id='post-8'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Rename an existing dataset.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>***POST*** /datasets/rename_dataset</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='datasets-upload_file'>/DATASETS/UPLOAD_FILE</h1><h2 id='post-9'><strong><em>POST</em></strong></h2><h3 id='http-request-10'>HTTP Request</h3>
+<p><code>***POST*** /datasets/upload_file</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>metadata</td>
+<td>query</td>
+<td>Optional json containing additional document metadata. Eg: {&quot;time&quot;:&quot;01/01/2001&quot;,&quot;author&quot;:&quot;me&quot;}</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>file</td>
+<td>formData</td>
+<td></td>
+<td>Yes</td>
+<td>file</td>
+</tr>
+<tr>
+<td>dataset</td>
+<td>query</td>
+<td>Destination dataset where the file will be inserted.</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>filename</td>
+<td>query</td>
+<td>Specify the filename if you want to override the original filename (Nucleus guesses the file type from the file name extension)</td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='documents-document_classify'>/DOCUMENTS/DOCUMENT_CLASSIFY</h1><h2 id='post-10'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Document one-layer classifier on a chosen dataset.</p>
+<h3 id='http-request-11'>HTTP Request</h3>
+<p><code>***POST*** /documents/document_classify</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='documents-document_contrasted_summary'>/DOCUMENTS/DOCUMENT_CONTRASTED_SUMMARY</h1><h2 id='post-11'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Document contrasted summarization.</p>
+<h3 id='http-request-12'>HTTP Request</h3>
+<p><code>***POST*** /documents/document_contrasted_summary</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='documents-document_display'>/DOCUMENTS/DOCUMENT_DISPLAY</h1><h2 id='post-12'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Document display.</p>
+<h3 id='http-request-13'>HTTP Request</h3>
+<p><code>***POST*** /documents/document_display</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='documents-document_info'>/DOCUMENTS/DOCUMENT_INFO</h1><h2 id='post-13'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Retrieve metadata of documents matching the provided filter (limited to 10000 documents).</p>
+<h3 id='http-request-14'>HTTP Request</h3>
+<p><code>***POST*** /documents/document_info</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='documents-document_recommend'>/DOCUMENTS/DOCUMENT_RECOMMEND</h1><h2 id='post-14'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Recommendation of documents on given topics that have been extracted from a given dataset.</p>
+<h3 id='http-request-15'>HTTP Request</h3>
+<p><code>***POST*** /documents/document_recommend</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='documents-document_sentiment'>/DOCUMENTS/DOCUMENT_SENTIMENT</h1><h2 id='post-15'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Document sentiment.</p>
+<h3 id='http-request-16'>HTTP Request</h3>
+<p><code>***POST*** /documents/document_sentiment</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='documents-document_summary'>/DOCUMENTS/DOCUMENT_SUMMARY</h1><h2 id='post-16'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Document summarization.</p>
+<h3 id='http-request-17'>HTTP Request</h3>
+<p><code>***POST*** /documents/document_summary</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='feeds-available_sec_filings'>/FEEDS/AVAILABLE_SEC_FILINGS</h1><h2 id='post-17'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Get information about the available sec filings. If no input is passed, returns the list of all available tickers. If tickers are passed, returns the list of available document types for these tickers. If documt types are also passed, returns the list of available secions for the selected tickers/filing types</p>
+<h3 id='http-request-18'>HTTP Request</h3>
+<p><code>***POST*** /feeds/available_sec_filings</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+</tbody></table>
+<h1 id='feeds-create_dataset_from_sec_filings'>/FEEDS/CREATE_DATASET_FROM_SEC_FILINGS</h1><h2 id='post-18'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Creates a new dataset and populates it with sec filings matching the specified tickers/form types.</p>
+<h3 id='http-request-19'>HTTP Request</h3>
+<p><code>***POST*** /feeds/create_dataset_from_sec_filings</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+</tbody></table>
+<h1 id='filters'>/FILTERS</h1><h2 id='get-2'><strong><em>GET</em></strong></h2>
+<p><strong>Description:</strong> List the filters owned by the user.</p>
+<h3 id='http-request-20'>HTTP Request</h3>
+<p><code>***GET*** /filters</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>consumes</td>
+<td>textHtml</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+</tbody></table>
+<h1 id='filters-delete_filter'>/FILTERS/DELETE_FILTER</h1><h2 id='post-19'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Delete a filter.</p>
+<h3 id='http-request-21'>HTTP Request</h3>
+<p><code>***POST*** /filters/delete_filter</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='filters-save_filter'>/FILTERS/SAVE_FILTER</h1><h2 id='post-20'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Save a filter representing a subsect of a dataset (time range, query, metadata..).</p>
+<h3 id='http-request-22'>HTTP Request</h3>
+<p><code>***POST*** /filters/save_filter</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='jobs'>/JOBS</h1><h2 id='get-3'><strong><em>GET</em></strong></h2>
+<p><strong>Description:</strong> Use this API to check the progress and retrieve results of a job. Poll this endpoint repeatedly until result is not null.</p>
+<h3 id='http-request-23'>HTTP Request</h3>
+<p><code>***GET*** /jobs</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>query</td>
+<td>ID of the job</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>consumes</td>
+<td>textHtml</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+</tbody></table>
+<h1 id='jobs-start_example_job'>/JOBS/START_EXAMPLE_JOB</h1><h2 id='post-21'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Start an example background job</p>
+<h3 id='http-request-24'>HTTP Request</h3>
+<p><code>***POST*** /jobs/start_example_job</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>color</td>
+<td>query</td>
+<td>A color</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>wait_time</td>
+<td>query</td>
+<td>Seconds to wait before returning the result</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>consumes</td>
+<td>textHtml</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+</tbody></table>
+<h1 id='legacy'>/LEGACY</h1><h2 id='post-22'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Recommendation of documents on given topics that have been extracted from a given dataset.</p>
+<h3 id='http-request-25'>HTTP Request</h3>
+<p><code>***POST*** /legacy</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+</tbody></table>
+<h1 id='topics-author_connectivity'>/TOPICS/AUTHOR_CONNECTIVITY</h1><h2 id='post-23'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Get the network of similar authors to a reference author.</p>
+<h3 id='http-request-26'>HTTP Request</h3>
+<p><code>***POST*** /topics/author_connectivity</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='topics-topic_consensus'>/TOPICS/TOPIC_CONSENSUS</h1><h2 id='post-24'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Get topic consensus for topics extracted from a given dataset.</p>
+<h3 id='http-request-27'>HTTP Request</h3>
+<p><code>***POST*** /topics/topic_consensus</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='topics-topic_consensus_transfer'>/TOPICS/TOPIC_CONSENSUS_TRANSFER</h1><h2 id='post-25'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Get exposures of documents in a validation dataset to topics extracted from a reference dataset.</p>
+<h3 id='http-request-28'>HTTP Request</h3>
+<p><code>***POST*** /topics/topic_consensus_transfer</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='topics-topic_contrast'>/TOPICS/TOPIC_CONTRAST</h1><h2 id='post-26'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Contrasting topic extraction on a chosen dataset.</p>
+<h3 id='http-request-29'>HTTP Request</h3>
+<p><code>***POST*** /topics/topic_contrast</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='topics-topic_delta'>/TOPICS/TOPIC_DELTA</h1><h2 id='post-27'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Get changes in exposure to key topics from documents in a dataset in between two dates.</p>
+<h3 id='http-request-30'>HTTP Request</h3>
+<p><code>***POST*** /topics/topic_delta</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='topics-topic_historical'>/TOPICS/TOPIC_HISTORICAL</h1><h2 id='post-28'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Get a historical analysis of topics extracted from a dataset.</p>
+<h3 id='http-request-31'>HTTP Request</h3>
+<p><code>***POST*** /topics/topic_historical</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='topics-topic_sentiment'>/TOPICS/TOPIC_SENTIMENT</h1><h2 id='post-29'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Get topic sentiment for topics extracted from a given dataset.</p>
+<h3 id='http-request-32'>HTTP Request</h3>
+<p><code>***POST*** /topics/topic_sentiment</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='topics-topic_sentiment_transfer'>/TOPICS/TOPIC_SENTIMENT_TRANSFER</h1><h2 id='post-30'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Get sentiment exposures of documents in a validation dataset to topics extracted from a reference dataset.</p>
+<h3 id='http-request-33'>HTTP Request</h3>
+<p><code>***POST*** /topics/topic_sentiment_transfer</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='topics-topic_summary'>/TOPICS/TOPIC_SUMMARY</h1><h2 id='post-31'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Get summaries of topics that have been extracted from a dataset.</p>
+<h3 id='http-request-34'>HTTP Request</h3>
+<p><code>***POST*** /topics/topic_summary</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='topics-topic_transfer'>/TOPICS/TOPIC_TRANSFER</h1><h2 id='post-32'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Get exposures of documents in a validation dataset to topics extracted from a reference dataset.</p>
+<h3 id='http-request-35'>HTTP Request</h3>
+<p><code>***POST*** /topics/topic_transfer</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='topics-topics'>/TOPICS/TOPICS</h1><h2 id='post-33'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Get key topics from a given dataset.</p>
+<h3 id='http-request-36'>HTTP Request</h3>
+<p><code>***POST*** /topics/topics</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Failed</td>
+</tr>
+</tbody></table>
+<h1 id='users'>/USERS</h1><h2 id='post-34'><strong><em>POST</em></strong></h2>
+<p><strong>Description:</strong> Use this API to register a new user. Email and password are required, all other fields optional.</p>
+<h3 id='http-request-37'>HTTP Request</h3>
+<p><code>***POST*** /users</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>payload</td>
+<td>body</td>
+<td></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+</tbody></table>
+<h2 id='get-4'><strong><em>GET</em></strong></h2>
+<p><strong>Description:</strong> Use this API to authenticate. If the password is correct, returns the user details, including the user&#39;s api key.</p>
+<h3 id='http-request-38'>HTTP Request</h3>
+<p><code>***GET*** /users</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user_email</td>
+<td>query</td>
+<td>Email of the user to authenticate.</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>password</td>
+<td>query</td>
+<td>Plaintext password of the user to authenticate.</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>consumes</td>
+<td>textHtml</td>
+<td></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+</tr>
+</tbody></table>
+
+<!-- Converted with the swagger-to-slate https://github.com/lavkumarv/swagger-to-slate -->
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
@@ -495,9 +2224,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>
