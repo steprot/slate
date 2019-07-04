@@ -1,239 +1,822 @@
----
-title: API Reference
+--- 
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
+title: Nucleus API 
 
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+language_tabs: 
+   - shell 
 
-includes:
-  - errors
+toc_footers: 
+   - <a href='#'>Sign Up for a Developer Key</a> 
+   - <a href='https://github.com/lavkumarv'>Documentation Powered by lav</a> 
 
-search: true
----
+includes: 
+   - errors 
 
-# Introduction
+search: true 
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+--- 
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+# Introduction 
 
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Nucleus text analytics APIs from SumUp Analytics. Example and documentation: https://github.com/SumUpAnalytics/nucleus-sdk 
 
-# Authentication
+**Version:** v2.4.1 
 
-> To authorize, use this code:
+# Authentication 
 
-```ruby
-require 'kittn'
+|apiKey|*API Key*|
+|---|---| 
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+# /DATASETS
+## ***GET*** 
 
-```python
-import kittn
+**Description:** List the datasets owned by the user.
 
-api = kittn.authorize('meowmeowmeow')
-```
+### HTTP Request 
+`***GET*** /datasets` 
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
+**Parameters**
 
-```javascript
-const kittn = require('kittn');
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| consumes | textHtml |  | No | string |
 
-let api = kittn.authorize('meowmeowmeow');
-```
+**Responses**
 
-> Make sure to replace `meowmeowmeow` with your API key.
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+# /DATASETS/APPEND_JSON_TO_DATASET
+## ***POST*** 
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+**Description:** Add a document to a dataset, in JSON form.
 
-`Authorization: meowmeowmeow`
+### HTTP Request 
+`***POST*** /datasets/append_json_to_dataset` 
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+**Parameters**
 
-# Kittens
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
 
-## Get All Kittens
+**Responses**
 
-```ruby
-require 'kittn'
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
+# /DATASETS/BULK_INSERT_JSON
+## ***POST*** 
 
-```python
-import kittn
+**Description:** Add many document to a dataset, in JSON form. Bulk insertion is much faster than making one api call for each document.
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+### HTTP Request 
+`***POST*** /datasets/bulk_insert_json` 
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
+**Parameters**
 
-```javascript
-const kittn = require('kittn');
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
+**Responses**
 
-> The above command returns JSON structured like this:
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
+# /DATASETS/DATASET_INFO
+## ***POST*** 
 
-This endpoint retrieves all kittens.
+**Description:** Get information about a dataset.
 
-### HTTP Request
+### HTTP Request 
+`***POST*** /datasets/dataset_info` 
 
-`GET http://example.com/api/kittens`
+**Parameters**
 
-### Query Parameters
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+**Responses**
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
 
-## Get a Specific Kitten
+# /DATASETS/DATASET_TAGGING
+## ***POST*** 
 
-```ruby
-require 'kittn'
+**Description:** Tag documents containig specified entities within a dataset.
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+### HTTP Request 
+`***POST*** /datasets/dataset_tagging` 
 
-```python
-import kittn
+**Parameters**
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
+**Responses**
 
-```javascript
-const kittn = require('kittn');
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
+# /DATASETS/DELETE_DATASET
+## ***POST*** 
 
-> The above command returns JSON structured like this:
+**Description:** Delete an existing dataset from the user storage.
 
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
+### HTTP Request 
+`***POST*** /datasets/delete_dataset` 
 
-This endpoint retrieves a specific kitten.
+**Parameters**
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
 
-### HTTP Request
+**Responses**
 
-`GET http://example.com/kittens/<ID>`
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
 
-### URL Parameters
+# /DATASETS/DELETE_DOCUMENT
+## ***POST*** 
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+**Description:** Delete documents from a dataset.
 
-## Delete a Specific Kitten
+### HTTP Request 
+`***POST*** /datasets/delete_document` 
 
-```ruby
-require 'kittn'
+**Parameters**
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
 
-```python
-import kittn
+**Responses**
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
+# /DATASETS/IMPORT_FILE_FROM_URL
+## ***POST*** 
 
-```javascript
-const kittn = require('kittn');
+### HTTP Request 
+`***POST*** /datasets/import_file_from_url` 
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
+**Parameters**
 
-> The above command returns JSON structured like this:
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
 
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
+**Responses**
 
-This endpoint deletes a specific kitten.
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
 
-### HTTP Request
+# /DATASETS/RENAME_DATASET
+## ***POST*** 
 
-`DELETE http://example.com/kittens/<ID>`
+**Description:** Rename an existing dataset.
 
-### URL Parameters
+### HTTP Request 
+`***POST*** /datasets/rename_dataset` 
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+**Parameters**
 
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /DATASETS/UPLOAD_FILE
+## ***POST*** 
+
+### HTTP Request 
+`***POST*** /datasets/upload_file` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| metadata | query | Optional json containing additional document metadata. Eg: {"time":"01/01/2001","author":"me"} | No | string |
+| file | formData |  | Yes | file |
+| dataset | query | Destination dataset where the file will be inserted. | Yes | string |
+| filename | query | Specify the filename if you want to override the original filename (Nucleus guesses the file type from the file name extension) | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /DOCUMENTS/DOCUMENT_CLASSIFY
+## ***POST*** 
+
+**Description:** Document one-layer classifier on a chosen dataset.
+
+### HTTP Request 
+`***POST*** /documents/document_classify` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /DOCUMENTS/DOCUMENT_CONTRASTED_SUMMARY
+## ***POST*** 
+
+**Description:** Document contrasted summarization.
+
+### HTTP Request 
+`***POST*** /documents/document_contrasted_summary` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /DOCUMENTS/DOCUMENT_DISPLAY
+## ***POST*** 
+
+**Description:** Document display.
+
+### HTTP Request 
+`***POST*** /documents/document_display` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /DOCUMENTS/DOCUMENT_INFO
+## ***POST*** 
+
+**Description:** Retrieve metadata of documents matching the provided filter (limited to 10000 documents).
+
+### HTTP Request 
+`***POST*** /documents/document_info` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /DOCUMENTS/DOCUMENT_RECOMMEND
+## ***POST*** 
+
+**Description:** Recommendation of documents on given topics that have been extracted from a given dataset.
+
+### HTTP Request 
+`***POST*** /documents/document_recommend` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /DOCUMENTS/DOCUMENT_SENTIMENT
+## ***POST*** 
+
+**Description:** Document sentiment.
+
+### HTTP Request 
+`***POST*** /documents/document_sentiment` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /DOCUMENTS/DOCUMENT_SUMMARY
+## ***POST*** 
+
+**Description:** Document summarization.
+
+### HTTP Request 
+`***POST*** /documents/document_summary` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /FEEDS/AVAILABLE_SEC_FILINGS
+## ***POST*** 
+
+**Description:** Get information about the available sec filings. If no input is passed, returns the list of all available tickers. If tickers are passed, returns the list of available document types for these tickers. If documt types are also passed, returns the list of available secions for the selected tickers/filing types
+
+### HTTP Request 
+`***POST*** /feeds/available_sec_filings` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+# /FEEDS/CREATE_DATASET_FROM_SEC_FILINGS
+## ***POST*** 
+
+**Description:** Creates a new dataset and populates it with sec filings matching the specified tickers/form types.
+
+### HTTP Request 
+`***POST*** /feeds/create_dataset_from_sec_filings` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+# /FILTERS
+## ***GET*** 
+
+**Description:** List the filters owned by the user.
+
+### HTTP Request 
+`***GET*** /filters` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| consumes | textHtml |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+# /FILTERS/DELETE_FILTER
+## ***POST*** 
+
+**Description:** Delete a filter.
+
+### HTTP Request 
+`***POST*** /filters/delete_filter` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /FILTERS/SAVE_FILTER
+## ***POST*** 
+
+**Description:** Save a filter representing a subsect of a dataset (time range, query, metadata..).
+
+### HTTP Request 
+`***POST*** /filters/save_filter` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /JOBS
+## ***GET*** 
+
+**Description:** Use this API to check the progress and retrieve results of a job. Poll this endpoint repeatedly until result is not null.
+
+### HTTP Request 
+`***GET*** /jobs` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | query | ID of the job | Yes | string |
+| consumes | textHtml |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+# /JOBS/START_EXAMPLE_JOB
+## ***POST*** 
+
+**Description:** Start an example background job
+
+### HTTP Request 
+`***POST*** /jobs/start_example_job` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| color | query | A color | Yes | string |
+| wait_time | query | Seconds to wait before returning the result | Yes | integer |
+| consumes | textHtml |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+# /LEGACY
+## ***POST*** 
+
+**Description:** Recommendation of documents on given topics that have been extracted from a given dataset.
+
+### HTTP Request 
+`***POST*** /legacy` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+# /TOPICS/AUTHOR_CONNECTIVITY
+## ***POST*** 
+
+**Description:** Get the network of similar authors to a reference author.
+
+### HTTP Request 
+`***POST*** /topics/author_connectivity` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /TOPICS/TOPIC_CONSENSUS
+## ***POST*** 
+
+**Description:** Get topic consensus for topics extracted from a given dataset.
+
+### HTTP Request 
+`***POST*** /topics/topic_consensus` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /TOPICS/TOPIC_CONSENSUS_TRANSFER
+## ***POST*** 
+
+**Description:** Get exposures of documents in a validation dataset to topics extracted from a reference dataset.
+
+### HTTP Request 
+`***POST*** /topics/topic_consensus_transfer` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /TOPICS/TOPIC_CONTRAST
+## ***POST*** 
+
+**Description:** Contrasting topic extraction on a chosen dataset.
+
+### HTTP Request 
+`***POST*** /topics/topic_contrast` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /TOPICS/TOPIC_DELTA
+## ***POST*** 
+
+**Description:** Get changes in exposure to key topics from documents in a dataset in between two dates.
+
+### HTTP Request 
+`***POST*** /topics/topic_delta` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /TOPICS/TOPIC_HISTORICAL
+## ***POST*** 
+
+**Description:** Get a historical analysis of topics extracted from a dataset.
+
+### HTTP Request 
+`***POST*** /topics/topic_historical` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /TOPICS/TOPIC_SENTIMENT
+## ***POST*** 
+
+**Description:** Get topic sentiment for topics extracted from a given dataset.
+
+### HTTP Request 
+`***POST*** /topics/topic_sentiment` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /TOPICS/TOPIC_SENTIMENT_TRANSFER
+## ***POST*** 
+
+**Description:** Get sentiment exposures of documents in a validation dataset to topics extracted from a reference dataset.
+
+### HTTP Request 
+`***POST*** /topics/topic_sentiment_transfer` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /TOPICS/TOPIC_SUMMARY
+## ***POST*** 
+
+**Description:** Get summaries of topics that have been extracted from a dataset.
+
+### HTTP Request 
+`***POST*** /topics/topic_summary` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /TOPICS/TOPIC_TRANSFER
+## ***POST*** 
+
+**Description:** Get exposures of documents in a validation dataset to topics extracted from a reference dataset.
+
+### HTTP Request 
+`***POST*** /topics/topic_transfer` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /TOPICS/TOPICS
+## ***POST*** 
+
+**Description:** Get key topics from a given dataset.
+
+### HTTP Request 
+`***POST*** /topics/topics` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+| 400 | Failed |
+
+# /USERS
+## ***POST*** 
+
+**Description:** Use this API to register a new user. Email and password are required, all other fields optional.
+
+### HTTP Request 
+`***POST*** /users` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| payload | body |  | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+## ***GET*** 
+
+**Description:** Use this API to authenticate. If the password is correct, returns the user details, including the user's api key.
+
+### HTTP Request 
+`***GET*** /users` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| user_email | query | Email of the user to authenticate.  | Yes | string |
+| password | query | Plaintext password of the user to authenticate.  | Yes | string |
+| consumes | textHtml |  | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Success |
+
+<!-- Converted with the swagger-to-slate https://github.com/lavkumarv/swagger-to-slate -->
